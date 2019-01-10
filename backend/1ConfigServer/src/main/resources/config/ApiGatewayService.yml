@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  
+zuul:
+  prefix: /api
+  sensitiveHeaders:
+  routes:
+    oauth:
+      path: /oauth/**
+      serviceId: OAuth2Service
+    product:
+      path: /product/**
+      serviceId: ProductService
+    customer:
+      path: /customer/**
+      serviceId: CustomerService
+    shopping:
+      path: /shopping/**
+      serviceId: ShoppingService
+    order:
+      path: /order/**
+      serviceId: OrderService 

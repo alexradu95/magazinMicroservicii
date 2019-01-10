@@ -1,0 +1,33 @@
+<div class="cart-container" *ngIf="dataLoaded | async">
+
+    <h4 class="cart-title">You have <span>{{cart.cartlineList.length}} products</span> in your Shopping Cart</h4>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+              <th scope="col">Product Name</th>
+              <th scope="col" style="text-align: center">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let element of cart.cartlineList; let i = index" [attr.data-index]="i">
+                <td>{{element.product.name}}</td>
+                <td style="text-align: center">$ {{element.product.price}}</td>
+              </tr>
+              <tr>
+                <th scope="row" >Total</th>
+                <td style="text-align: center; font-weight: bold; font-size: 20px">$ {{ cart.totalPrice }}</td>
+              </tr>
+          </tbody>
+      </table>
+
+      <div class="checkout-container">
+          <button class="btn btn-dark checkout-btn" (click)= checkout()>Checkout</button>
+      </div>
+
+</div>
+<div class="cart-container" *ngIf="!cartExist">
+    <div class="no-item-cart">
+        <h2>You have no item on your cart ! </h2>
+    </div>  
+</div>

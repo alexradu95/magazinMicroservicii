@@ -1,0 +1,22 @@
+<div class="product-container">
+    <div class="product-desc-container" *ngIf="dataLoaded | async">
+        <h3>Product Details</h3>
+        <div>
+            Reference: <span>{{product.id}}</span>
+        </div>
+        <div>
+            Name: <span>{{product.name}}</span>
+        </div>
+        <div>
+            Price: <span>$ {{product.price}}</span>
+        </div>
+        <div>
+            Description: <span> {{product.description}}</span>
+        </div>
+        <div class="add-to-card-container">
+            <div>
+                <button type="button" class="btn btn-dark" (click)= addProductToCart(product.id) >Add to card</button>
+            </div>
+        </div>
+    </div>
+</div>
