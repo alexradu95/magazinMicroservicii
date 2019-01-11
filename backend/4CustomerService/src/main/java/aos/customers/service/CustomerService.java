@@ -43,7 +43,7 @@ public class CustomerService {
 				customerSignUpRequest.getFirstName() + " " + customerSignUpRequest.getLastName(),
 				customerSignUpRequest.getPassword());
 		AccountDto responseEntity = oauth2Proxy.registerUser(account);
-
+		System.out.println("test");
 		if (responseEntity.isSuccess()) {
 			Customer customer = new Customer(customerSignUpRequest.getFirstName(), customerSignUpRequest.getLastName(),
 					customerSignUpRequest.getEmail(), customerSignUpRequest.getPhone());
