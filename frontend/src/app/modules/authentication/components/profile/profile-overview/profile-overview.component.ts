@@ -17,7 +17,7 @@ export class ProfileOverviewComponent implements OnInit {
       (data) => {
         this.userProfile = data;
         //this.router.navigate(['profile']);
-
+		console.log(data);
       }, (error) => {
           console.log(error);
       }

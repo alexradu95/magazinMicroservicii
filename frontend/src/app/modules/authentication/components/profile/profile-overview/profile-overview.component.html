@@ -18,14 +18,18 @@
                                 <i class="fa fa-phone-square">&nbsp;</i>
                                 {{ userProfile?.phone }}
                             </p>
+						<p class="lead">
+                          <a class="btn btn-primary btn-lg" href="/profile/edit" role="button">Edit Profile</a>
+                        </p>
                         <hr class="my-4">
+
                         <h3 class="display-9">Address</h3>
                         <p>
                                 <i class="material-icons">my_location</i>
-                           {{userProfile?.address?.street}}, {{userProfile?.address?.city}},  {{userProfile?.address?.zip}}, {{userProfile?.address?.state}}, {{userProfile?.address?.country}}
+                           {{userProfile?.adress?.street}}, {{userProfile?.adress?.city}},  {{userProfile?.adress?.zip}}, {{userProfile?.adress?.state}}, {{userProfile?.adress?.country}}
                             </p>
-                        <p class="lead">
-                          <a class="btn btn-primary btn-lg" href="/profile/edit" role="button">Edit</a>
+						<p class="lead">
+                          <a class="btn btn-primary btn-lg" href="/profile/address" role="button">Edit Address</a>
                         </p>
                       </div>
                 </div>
