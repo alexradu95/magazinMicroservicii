@@ -17,7 +17,6 @@ import { AdminProductCategoryComponent } from './modules/admin/admin-product-cat
 import { AdminProductComponent } from './modules/admin/admin-product/admin-product.component';
 import { NewCategoryComponent } from './modules/admin/admin-product-category/new-category/new-category.component';
 import { NewProductComponent } from './modules/admin/admin-product/new-product/new-product.component';
-import { UploadProductImageComponent } from './modules/admin/admin-product/upload-product-image/upload-product-image.component';
 const routes: Routes = [
     {
         path: 'home',
@@ -66,7 +65,6 @@ const routes: Routes = [
             { path: 'product', component: AdminProductComponent },
             { path: 'product/new', component: NewProductComponent },
             { path: 'product/edit/:id', component: NewProductComponent },
-            { path: 'product/image-upload/:id', component: UploadProductImageComponent },
             { path: 'product-category', component: AdminProductCategoryComponent },
             { path: 'product-category/new', component: NewCategoryComponent },
             { path: 'product-category/edit/:id', component: NewCategoryComponent },

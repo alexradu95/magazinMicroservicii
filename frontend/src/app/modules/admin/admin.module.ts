@@ -7,7 +7,6 @@ import { AdminProductCategoryComponent } from './admin-product-category/admin-pr
 import { AdminComponent } from './admin/admin.component';
 import { NewCategoryComponent } from './admin-product-category/new-category/new-category.component';
 import { NewProductComponent } from './admin-product/new-product/new-product.component';
-import { UploadProductImageComponent } from './admin-product/upload-product-image/upload-product-image.component';
 
 @NgModule({
   imports: [
@@ -15,6 +14,6 @@ import { UploadProductImageComponent } from './admin-product/upload-product-imag
     FormsModule,
     RouterModule
   ],
-  declarations: [AdminProductComponent, AdminProductCategoryComponent, AdminComponent, NewCategoryComponent, NewProductComponent, UploadProductImageComponent]
+  declarations: [AdminProductComponent, AdminProductCategoryComponent, AdminComponent, NewCategoryComponent, NewProductComponent]
 })
 export class AdminModule { }
