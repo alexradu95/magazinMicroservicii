@@ -32,6 +32,13 @@ public class ShoppingCart {
 			}
 		}
 	}
+	
+	public void emptyCart() {
+		Iterator<CartLine> iter = cartlineList.iterator();
+		while (iter.hasNext()) {
+			iter.remove();
+		}
+	}
 
 	public String getCartId() {
 		return cartId;

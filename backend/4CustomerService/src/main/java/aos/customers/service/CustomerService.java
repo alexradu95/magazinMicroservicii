@@ -95,10 +95,10 @@ public class CustomerService {
 
 		Customer customer = customerRepository.findByEmail(currentUser.getEmail());
 
-		Address billingAddress = new Address(addressRequest.getStreet(), addressRequest.getCity(),
+		Address address = new Address(addressRequest.getStreet(), addressRequest.getCity(),
 				addressRequest.getZip(), addressRequest.getState(), addressRequest.getCountry());
-		customer.setAdress(billingAddress);
-		billingAddress.setCustomer(customer);
+		customer.setAdress(address);
+		address.setCustomer(customer);
 		customerRepository.save(customer);
 
 		URI location = ServletUriComponentsBuilder.fromCurrentContextPath().path("/customer").buildAndExpand().toUri();

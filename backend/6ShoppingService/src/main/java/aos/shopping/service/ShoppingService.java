@@ -9,11 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import aos.security.UserPrincipal;
-import aos.shopping.adapter.ShoppingCartAdapter;
 import aos.shopping.domain.Product;
 import aos.shopping.domain.ShoppingCart;
 import aos.shopping.dto.ProductDto;
-import aos.shopping.integration.OrderProxy;
 import aos.shopping.integration.ProductCatalogProxy;
 import aos.shopping.payload.ApiResponse;
 import aos.shopping.payload.ShoppingRequest;
@@ -26,9 +24,6 @@ public class ShoppingService {
 	ProductCatalogProxy productCatalogProxy;
 	@Autowired
 	ShoppingCartRepository shoppingCartRepository;
-
-	@Autowired
-	OrderProxy orderProxy;
 	
 	/*
 	@Autowired
@@ -83,11 +78,7 @@ public class ShoppingService {
 		Optional<ShoppingCart> cartOpt = shoppingCartRepository.findById(cartId);
 		if (cartOpt.isPresent()) {
 			ShoppingCart cart = cartOpt.get();
-			//publish event
-			//ShoppingCartCheckedOutEvent event = new ShoppingCartCheckedOutEvent(cart);
-			//publisher.publishEvent(event);
-			
-			orderProxy.createOrder(ShoppingCartAdapter.getShoppingCartDto(cart), headers);
+			cart.emptyCart();
 		}		
 	}
 	
