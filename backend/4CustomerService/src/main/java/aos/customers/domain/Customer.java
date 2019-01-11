@@ -31,8 +31,6 @@ public class Customer {
 	@Size(max = 64)
 	private String phone;
 	
-	//@OneToOne(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "billingAddress", referencedColumnName="id", insertable=false, updatable=false)
 	@OneToOne(cascade = CascadeType.ALL)
     private Address adress;
 	

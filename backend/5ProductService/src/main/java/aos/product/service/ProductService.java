@@ -12,12 +12,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import aos.product.domain.Category;
 import aos.product.domain.Product;
-import aos.product.domain.ProductImage;
 import aos.product.payload.ApiResponse;
 import aos.product.payload.CategoryRequest;
 import aos.product.payload.ProductRequest;
-import aos.product.payload.StockRequest;
-import aos.product.payload.StockUpdateRequest;
 import aos.product.repository.CategoryRepository;
 import aos.product.repository.ProductRepository;
 
@@ -48,7 +45,7 @@ public class ProductService {
 
 		if (categoryRepository.existsByName(categoryRequest.getName())) {
 			return new ResponseEntity(
-					new ApiResponse(false, "Already there is category named " + categoryRequest.getName()),
+					new ApiResponse(false, "Exista deja o categorie cu numele " + categoryRequest.getName()),
 					HttpStatus.BAD_REQUEST);
 		}
 
@@ -58,19 +55,13 @@ public class ProductService {
 		URI location = ServletUriComponentsBuilder.fromCurrentContextPath().path("/category/{id}")
 				.buildAndExpand(result.getId()).toUri();
 
-		return ResponseEntity.created(location).body(new ApiResponse(true, "Category has been added successfully!"));
+		return ResponseEntity.created(location).body(new ApiResponse(true, "Categoria a fost adaugat cu succes!"));
 
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ResponseEntity<?> updateCategory(CategoryRequest categoryRequest, Long catId) {
-		/*
-			if (categoryRepository.existsByName(categoryRequest.getName())) {
-				return new ResponseEntity(
-						new ApiResponse(false, "Already there is category named " + categoryRequest.getName()),
-						HttpStatus.BAD_REQUEST);
-			}
-		*/
+		
 		Category category = categoryRepository.findById(catId).orElse(null);
 		if (category != null) {
 			category.setName(categoryRequest.getName());
@@ -79,11 +70,11 @@ public class ProductService {
 			URI location = ServletUriComponentsBuilder.fromCurrentContextPath().path("/category/{id}")
 					.buildAndExpand(result.getId()).toUri();
 
-			return ResponseEntity.created(location).body(new ApiResponse(true, "Category has been updated successfully!"));
+			return ResponseEntity.created(location).body(new ApiResponse(true, "Categorie a fost actualizata cu succes!"));
 		}
 
 		return new ResponseEntity(
-				new ApiResponse(false, "There is no such  category found!" + catId),
+				new ApiResponse(false, "Nu exista aceasta categorie!" + catId),
 				HttpStatus.BAD_REQUEST);
 
 
@@ -100,7 +91,7 @@ public class ProductService {
 		if(category.isPresent())
 			return new ResponseEntity<Category>(category.get(), HttpStatus.OK);
 		else 
-			return new ResponseEntity(new ApiResponse(false, "Specified category is not available!"),
+			return new ResponseEntity(new ApiResponse(false, "Categoria nu exista!"),
 					HttpStatus.BAD_REQUEST);
 		
 	}
@@ -118,7 +109,7 @@ public class ProductService {
 		if(productId.isPresent())			
 			return new ResponseEntity<Product>(result.get(), HttpStatus.OK);
 		else 
-			return new ResponseEntity(new ApiResponse(false, "Specified product is not available!"),
+			return new ResponseEntity(new ApiResponse(false, "Produsul nu exista!"),
 					HttpStatus.BAD_REQUEST);		
 
 		
@@ -132,7 +123,7 @@ public class ProductService {
 		if(result.isPresent())			
 			return new ResponseEntity<Product>(result.get(), HttpStatus.OK);
 		else 
-			return new ResponseEntity(new ApiResponse(false, "Specified product is not available!"),
+			return new ResponseEntity(new ApiResponse(false, "Produsul nu exista!"),
 					HttpStatus.BAD_REQUEST);		
 
 		
@@ -151,30 +142,13 @@ public class ProductService {
 			URI location = ServletUriComponentsBuilder.fromCurrentContextPath().path("/product/{productId}")
 					.buildAndExpand(result.getId()).toUri();
 
-			return ResponseEntity.created(location).body(new ApiResponse(true, "Product has been updated successfully!"));
+			return ResponseEntity.created(location).body(new ApiResponse(true, "Produsul a fost actualizat!"));
 		} else {
-			return new ResponseEntity<ApiResponse>(new ApiResponse(false, "Specified product is not available!"),
+			return new ResponseEntity<ApiResponse>(new ApiResponse(false, "Produsul nu exista!"),
 					HttpStatus.BAD_REQUEST);		
 		}
 
 		
 
-	}
-	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public ResponseEntity<?> getImagesProductById(String id) {		
-		
-		Optional<Product> result = productRepository.findById(id);
-		
-		if(result.isPresent())	{
-			List<ProductImage> productImages = result.get().getProductImages();
-			return new ResponseEntity<List<ProductImage>>(productImages, HttpStatus.OK);
-		}
-			
-		else 
-			return new ResponseEntity(new ApiResponse(false, "Specified product is not available!"),
-					HttpStatus.BAD_REQUEST);		
-
-		
 	}
 }

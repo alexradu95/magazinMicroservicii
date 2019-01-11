@@ -34,7 +34,6 @@ import javax.persistence.Id;
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	//@JsonIgnore
 	private int id;
 
 	@NotBlank
@@ -45,7 +44,6 @@ public class Product {
 	@Size(max = 255)
 	private String description;
 
-	// @NotBlank
 	@Column(precision = 16, scale = 2)
 	private Double price;
 
@@ -57,11 +55,6 @@ public class Product {
 	@JsonInclude()
 	@Transient
 	private Long categoryId;
-	
-	
-
-	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-	private List<ProductImage> productImages = new ArrayList<ProductImage>();
 
 	public Product() {
 	}
@@ -112,14 +105,6 @@ public class Product {
 
 	public void setCategory(Category category) {
 		this.category = category;
-	}
-
-	public List<ProductImage> getProductImages() {
-		return productImages;
-	}
-
-	public void setProductImages(List<ProductImage> productImages) {
-		this.productImages = productImages;
 	}
 
 	public void setPrice(Double price) {

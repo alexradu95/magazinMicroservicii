@@ -7,30 +7,30 @@ import org.springframework.core.annotation.Order;
 
 public class CustomerSignUpRequest {
 	
-    @NotBlank(message = "Firstname cannot be empty!")
+    @NotBlank(message = "Numele nu este completat!")
     @Size(min = 4, max = 40)
     @Order(1)
     private String firstName;
     
-    @NotBlank(message = "Lastname cannot be empty!")
+    @NotBlank(message = "Prenumele nu este completat!")
     @Size(min = 4, max = 40)
     @Order(2)
     private String lastName;
 
-    @NotBlank(message = "Username cannot be empty!")
+    @NotBlank(message = "Numele de utilizator nu este completat!")
     @Size(min = 4, max = 40)
     private String username;
 
-    @NotBlank(message = "Email cannot be empty!")
+    @NotBlank(message = "Adresa de email nu este completata!")
     @Size(max = 40)
     @Email
     private String email;
     
-    @NotBlank(message = "Phone cannot be empty!")
+    @NotBlank(message = "Numarul de telefon nu este completat!!")
     @Size(max = 40)
     private String phone;
 
-    @NotBlank(message = "Password cannot be empty!")
+    @NotBlank(message = "Parola nu este completata!")
     @Size(min = 6, max = 20)
     private String password;
 

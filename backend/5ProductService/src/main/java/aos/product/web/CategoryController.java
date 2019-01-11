@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import aos.product.payload.CategoryRequest;
 import aos.product.payload.ProductRequest;
-import aos.product.payload.StockRequest;
-import aos.product.payload.StockUpdateRequest;
 import aos.product.service.ProductService;
 
 @RestController

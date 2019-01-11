@@ -35,7 +35,7 @@ public class CustomerService {
 	public ResponseEntity<?> createAccount(CustomerSignUpRequest customerSignUpRequest) {
 
 		if (customerRepository.existsByEmail(customerSignUpRequest.getEmail())) {
-			return new ResponseEntity(new ApiResponse(false, "Email Address already in use!"), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity(new ApiResponse(false, "Adresa de email este deja folosita!"), HttpStatus.BAD_REQUEST);
 		}
 
 		AccountRequest account = new AccountRequest(customerSignUpRequest.getUsername(),
@@ -53,11 +53,11 @@ public class CustomerService {
 			URI location = ServletUriComponentsBuilder.fromCurrentContextPath()
 					.path("/customer/" + result.getCustomerId()).buildAndExpand(result.getCustomerId()).toUri();
 
-			return ResponseEntity.created(location).body(new ApiResponse(true, "The Account is created successfully!"));
+			return ResponseEntity.created(location).body(new ApiResponse(true, "Contul este creeat cu succes!"));
 		} else {
 			return new ResponseEntity(
 					new ApiResponse(false,
-							"Something problem in your data, please check! May be username already in use!"),
+							"A aparut o problema!"),
 					HttpStatus.BAD_REQUEST);
 		}
 	}
@@ -67,7 +67,7 @@ public class CustomerService {
 		Customer customer = customerRepository.findByEmail(currentUser.getEmail());
 		Customer updateResult = null;
 		if (customer == null) {
-			return new ResponseEntity(new ApiResponse(false, "Customer not found!"), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity(new ApiResponse(false, "Clientul nu exista!"), HttpStatus.BAD_REQUEST);
 		}
 
 		customer.setFirstname(customerUpdateRequest.getFirstname());
@@ -82,11 +82,11 @@ public class CustomerService {
 					.toUri();
 
 			return ResponseEntity.created(location)
-					.body(new ApiResponse(true, "Customer record is updated successfully!"));
+					.body(new ApiResponse(true, "Update cu succes!"));
 
 		} else {
 			return new ResponseEntity(
-					new ApiResponse(false, "Something problem in your data, please check! Update request failed!"),
+					new ApiResponse(false, "A aparut o problema!"),
 					HttpStatus.BAD_REQUEST);
 		}
 	}
@@ -102,7 +102,7 @@ public class CustomerService {
 		customerRepository.save(customer);
 
 		URI location = ServletUriComponentsBuilder.fromCurrentContextPath().path("/customer").buildAndExpand().toUri();
-		return ResponseEntity.created(location).body(new ApiResponse(true, "Address added successfully!"));
+		return ResponseEntity.created(location).body(new ApiResponse(true, "Adresa adaugata cu succes!"));
 	}
 
 	public ResponseEntity<?> getCustomer(UserPrincipal currentUser) {
@@ -112,7 +112,7 @@ public class CustomerService {
 			return new ResponseEntity<Customer>(customer, HttpStatus.OK);
 		}
 
-		return new ResponseEntity<ApiResponse>(new ApiResponse(false, "Specified customer is not available!"),
+		return new ResponseEntity<ApiResponse>(new ApiResponse(false, "Clientul nu exista!"),
 				HttpStatus.BAD_REQUEST);
 
 	}

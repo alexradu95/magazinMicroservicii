@@ -27,10 +27,7 @@ public class ShoppingService {
 	@Autowired
 	ShoppingCartRepository shoppingCartRepository;
 	
-	/*
-	@Autowired
-	private ApplicationEventPublisher publisher;
-*/
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public ResponseEntity<?>  addToCart(ShoppingRequest shoppingRequest, UserPrincipal currentUser) {
 		ShoppingCart result = null;
@@ -51,7 +48,7 @@ public class ShoppingService {
 				ShoppingCart cart = cartOptional.get();
 				if(cart.getCustomerId().longValue() != currentUser.getId().longValue()) {
 					return new ResponseEntity(
-							new ApiResponse(false, "Your are not allowed to add product to this cart!"),	HttpStatus.UNAUTHORIZED);
+							new ApiResponse(false, "Nu se poate adauga produsul in cos!"),	HttpStatus.UNAUTHORIZED);
 				}
 
 				cart.addToCart(product);
@@ -69,7 +66,7 @@ public class ShoppingService {
 		if (cart.isPresent())
 			return new ResponseEntity<ShoppingCart>(cart.get(), HttpStatus.OK);
 		else
-			return new ResponseEntity(new ApiResponse(false, "Specified category is not available!"),
+			return new ResponseEntity(new ApiResponse(false, "Categoria nu exista!"),
 					HttpStatus.BAD_REQUEST);		
 		
 	}

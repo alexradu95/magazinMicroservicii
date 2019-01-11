@@ -1,7 +1,7 @@
 <article class="card-body">
     <div class="row">
             <div class="col-md-12">
-                <h4>Edit Shiping Address</h4>
+                <h4>Modifica adresa</h4>
                 <hr>
             </div>
         </div>
@@ -15,37 +15,37 @@
       <form (ngSubmit)="onSubmit()">
         <div class="form-row">
           <div class="col form-group">
-            <label>Street</label>
+            <label>Strada</label>
             <input type="text" class="form-control" required [(ngModel)]="address.street" name="street">
           </div>
           <!-- form-group end.//  -->
           <div class="col form-group">
-            <label>City</label>
+            <label>Oras</label>
             <input type="text" class="form-control"  required [(ngModel)]="address.city" name="city">
           </div>
           <!-- form-group end.// -->
         </div>
         <!-- form-row end.// -->
         <div class="form-group">
-          <label>Zip</label>
+          <label>Cod Postal</label>
           <input type="email" class="form-control"  required [(ngModel)]="address.zip" name="zip">
         </div>
         <!-- form-group end.// -->
 
         <div class="form-group">
-          <label>State</label>
+          <label>Judet</label>
           <input class="form-control" type="text"  [(ngModel)]="address.state" name="state" required>
         </div>
 
         <!-- form-group end.// -->
         <div class="form-group">
-            <label>Country</label>
+            <label>Tara</label>
             <input class="form-control" type="text"  [(ngModel)]="address.country" name="country" required>
           </div>
 
         <!-- form-group end.// -->
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block"> Update </button>
+          <button type="submit" class="btn btn-primary btn-block"> Actualizeaza </button>
         </div>
         <!-- form-group// -->
        

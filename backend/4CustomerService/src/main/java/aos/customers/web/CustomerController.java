@@ -34,11 +34,7 @@ public class CustomerController {
 	
     @GetMapping("/getRole")
     public ResponseEntity<?> getRole(@CurrentUser UserPrincipal currentUser) {
-    	
-    	//return new ResponseEntity<List<UploadFileResponse>>(uploadFileResponses, HttpStatus.OK);
     	return new  ResponseEntity<Collection<? extends GrantedAuthority>>(currentUser.getAuthorities(), HttpStatus.OK);
-         // return userService.createUser(signUpRequest);
-
     }
 	
 	@PostMapping(value = "/update")

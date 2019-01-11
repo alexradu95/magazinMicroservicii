@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import aos.product.payload.ProductRequest;
-import aos.product.payload.StockRequest;
-import aos.product.payload.StockUpdateRequest;
 import aos.product.service.ProductService;
 
 
@@ -47,9 +45,5 @@ public class ProductController {
 	public ResponseEntity<?> updateProduct(@Valid @RequestBody ProductRequest productRequest, @PathVariable(value="id", required=true) int id) {
 		return productService.updateProduct(productRequest, id);
 	}
-	
-	@GetMapping(value = {"/getImagesByProductId/{id}"}) // using id
-	public ResponseEntity<?> getImagesProductById(@PathVariable(value="id", required=true) String id) {
-		return productService.getImagesProductById(id);
-	}
+
 }

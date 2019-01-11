@@ -1,7 +1,7 @@
 <article class="card-body">
         <div class="row">
                 <div class="col-md-12">
-                    <h4>Your Profile</h4>
+                    <h4>Profilul tau</h4>
                     <hr>
                 </div>
             </div>
@@ -15,30 +15,30 @@
           <form (ngSubmit)="onSubmit()">
             <div class="form-row">
               <div class="col form-group">
-                <label>First name </label>
+                <label>Nume </label>
                 <input type="text" class="form-control" required [(ngModel)]="userProfile.firstname" name="firstname">
               </div>
               <!-- form-group end.//  -->
               <div class="col form-group">
-                <label>Last name</label>
+                <label>Prenume</label>
                 <input type="text" class="form-control"  required [(ngModel)]="userProfile.lastname" name="lastname">
               </div>
               <!-- form-group end.// -->
             </div>
             <!-- form-row end.// -->
             <div class="form-group">
-              <label>Email address</label>
+              <label>Adresa email</label>
               <input type="email" class="form-control"  required [(ngModel)]="userProfile.email" name="email">
             </div>
             <!-- form-group end.// -->
 
             <div class="form-group">
-              <label>Phone</label>
+              <label>Telefon</label>
               <input class="form-control" type="text"  [(ngModel)]="userProfile.phone" name="phone" required>
             </div>
             <!-- form-group end.// -->
             <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block"> Update </button>
+              <button type="submit" class="btn btn-primary btn-block"> Actualizeaza </button>
             </div>
             <!-- form-group// -->
            

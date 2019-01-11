@@ -44,11 +44,6 @@ public class User extends DateAudit {
     @NotBlank
     @Size(max = 100)
     private String password;
-    
-//    @NotBlank
-//    @Size(max = 100)
-//    private String address;
-
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
@@ -65,7 +60,6 @@ public class User extends DateAudit {
         this.username = username;
         this.email = email;
         this.password = password;
-//        this.address = "Test";
     }
 
     public Long getId() {

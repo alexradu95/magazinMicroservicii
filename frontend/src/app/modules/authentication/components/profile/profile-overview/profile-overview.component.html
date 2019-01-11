@@ -2,7 +2,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    <h4>Your Profile</h4>
+                    <h4>Profilul tau</h4>
                     <hr>
                 </div>
             </div>
@@ -19,17 +19,17 @@
                                 {{ userProfile?.phone }}
                             </p>
 						<p class="lead">
-                          <a class="btn btn-primary btn-lg" href="/profile/edit" role="button">Edit Profile</a>
+                          <a class="btn btn-primary btn-lg" href="/profile/edit" role="button">Actualizeaza profilul</a>
                         </p>
                         <hr class="my-4">
 
-                        <h3 class="display-9">Address</h3>
+                        <h3 class="display-9">Adresa</h3>
                         <p>
                                 <i class="material-icons">my_location</i>
                            {{userProfile?.adress?.street}}, {{userProfile?.adress?.city}},  {{userProfile?.adress?.zip}}, {{userProfile?.adress?.state}}, {{userProfile?.adress?.country}}
                             </p>
 						<p class="lead">
-                          <a class="btn btn-primary btn-lg" href="/profile/address" role="button">Edit Address</a>
+                          <a class="btn btn-primary btn-lg" href="/profile/address" role="button">Actualizeaza adresa</a>
                         </p>
                       </div>
                 </div>

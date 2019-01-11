@@ -6,8 +6,8 @@
       <div class="col-md-5">
         <div class="card">
           <header class="card-header">
-            <a href="/signup" class="float-right btn btn-outline-primary mt-1">Signup</a>
-            <h4 class="card-title mt-2">Signin</h4>
+            <a href="/signup" class="float-right btn btn-outline-primary mt-1">Autentificare</a>
+            <h4 class="card-title mt-2">Autentificare</h4>
           </header>
           <article class="card-body">
                 <div [hidden]="!failed" class="alert alert-danger" role="alert">
@@ -20,23 +20,23 @@
 
                 <!-- form-row end.// -->
                 <div class="form-group">
-                  <label>Email</label>
+                  <label>Adresa Email</label>
                   <input type="email" class="form-control"  required [(ngModel)]="credentials.usernameOrEmail" name="usernameOrEmail">
                 </div>
                 <!-- form-group end.// -->
   
   
                 <div class="form-group">
-                  <label>Password</label>
+                  <label>Parola</label>
                   <input class="form-control" type="password"  required [(ngModel)]="credentials.password" name="password">
                 </div>
                
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block"> Signin </button>
+                    <button type="submit" class="btn btn-primary btn-block"> Autentificare </button>
                   </div>
               </form>
               <div>
-                  <a href="/signup">Create account</a> or <a href="#">reset password</a>
+                  <a href="/signup">Creaza cont</a>
                 </div>
           </article>
         </div>

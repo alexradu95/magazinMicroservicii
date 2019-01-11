@@ -7,22 +7,19 @@ import org.springframework.core.annotation.Order;
 
 public class CustomerUpdateRequest {
 	
-    @NotBlank(message = "Firstname cannot be empty!")
+    @NotBlank(message = "Numele nu este completat!")
     @Size(min = 4, max = 40)
     @Order(1)
     private String firstname;
     
-    @NotBlank(message = "Lastname cannot be empty!")
+    @NotBlank(message = "Prenumele nu este completat!")
     @Size(min = 4, max = 40)
     @Order(2)
     private String lastname;
       
-    @NotBlank(message = "Phone cannot be empty!")
+    @NotBlank(message = "Telefonul nu este completat!")
     @Size(max = 40)
     private String phone;
-
-
-	
 
 	public String getFirstname() {
 		return firstname;
