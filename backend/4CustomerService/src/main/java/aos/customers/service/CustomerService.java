@@ -97,7 +97,7 @@ public class CustomerService {
 
 		Address address = new Address(addressRequest.getStreet(), addressRequest.getCity(),
 				addressRequest.getZip(), addressRequest.getState(), addressRequest.getCountry());
-		customer.setAdress(address);
+		customer.setAdress(address); 
 		address.setCustomer(customer);
 		customerRepository.save(customer);
 
