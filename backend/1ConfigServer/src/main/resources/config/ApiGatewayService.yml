@@ -17,6 +17,3 @@ zuul:
     shopping:
       path: /shopping/**
       serviceId: ShoppingService
-    order:
-      path: /order/**
-      serviceId: OrderService 

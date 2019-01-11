@@ -1,5 +1,6 @@
 package aos.shopping.service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import aos.security.UserPrincipal;
+import aos.shopping.domain.CartLine;
 import aos.shopping.domain.Product;
 import aos.shopping.domain.ShoppingCart;
 import aos.shopping.dto.ProductDto;
@@ -60,6 +62,7 @@ public class ShoppingService {
 		return new ResponseEntity<ShoppingCart>(result, HttpStatus.OK); 
 		
 	}
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public ResponseEntity<?> getCart(String cartId) {
 		Optional<ShoppingCart> cart = shoppingCartRepository.findById(cartId);
@@ -78,7 +81,8 @@ public class ShoppingService {
 		Optional<ShoppingCart> cartOpt = shoppingCartRepository.findById(cartId);
 		if (cartOpt.isPresent()) {
 			ShoppingCart cart = cartOpt.get();
-			cart.emptyCart();
+			cart.setCartlineList(new ArrayList<CartLine>());			
+			shoppingCartRepository.save(cart);
 		}		
 	}
 	
